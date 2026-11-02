@@ -1,7 +1,12 @@
-JavaScript
-const container = document.getElementById('webgl-container');
+// 1. Логика прелоадера
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('preloader').classList.add('preloader-hidden');
+    }, 2200);
+});
 
-// 1. Создаем сцену, камеру и рендерер
+// 2. Логика 3D сцены
+const container = document.getElementById('webgl-container');
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
@@ -9,41 +14,31 @@ const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 renderer.setSize(container.clientWidth, container.clientHeight);
 container.appendChild(renderer.domElement);
 
-// 2. Создаем тестовый объект (геометрия + материал)
-const geometry = new THREE.IcosahedronGeometry(2, 0);
+// Создаем технологичную сетчатую сферу под цвет логотипа
+const geometry = new THREE.IcosahedronGeometry(2.5, 1);
 const material = new THREE.MeshBasicMaterial({ 
-    color: 0x00ffcc, 
-    wireframe: true 
+    color: 0x5c4dff, 
+    wireframe: true,
+    transparent: true,
+    opacity: 0.6
 });
 const shape = new THREE.Mesh(geometry, material);
 scene.add(shape);
 
-camera.position.z = 5;
+camera.position.z = 6;
 
-// 3. Запускаем цикл анимации
 function animate() {
     requestAnimationFrame(animate);
-    
-    shape.rotation.x += 0.002;
-    shape.rotation.y += 0.005;
-    
+    shape.rotation.x += 0.001;
+    shape.rotation.y += 0.002;
     renderer.render(scene, camera);
 }
 animate();
 
-// 4. Делаем сцену адаптивной при изменении размера окна
 window.addEventListener('resize', () => {
-    camera.aspect = container.clientWidth / container.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(container.clientWidth, container.clientHeight);
-});
-JavaScript
-// Логика загрузочного экрана
-window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
-    
-    // Ждем 2.2 секунды (чтобы полоска успела заполниться), затем скрываем
-    setTimeout(() => {
-        preloader.classList.add('preloader-hidden');
-    }, 2200);
+    if(container) {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+    }
 });
