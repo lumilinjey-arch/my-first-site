@@ -28,12 +28,7 @@ body, html {
     align-items: center;
 }
 .preloader-logo {
-    width: 190px; /* Чуть увеличили, чтобы компенсировать размытые края */
-    margin-bottom: 25px;
-    mix-blend-mode: screen;
-    /* Плавное размытие краев картинки (маска) */
-    -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 90%);
-    mask-image: radial-gradient(ellipse at center, black 50%, transparent 90%);
+    
 }
 .progress-bar-container {
     width: 220px;
