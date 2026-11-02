@@ -28,7 +28,9 @@ body, html {
     align-items: center;
 }
 .preloader-logo {
-    
+    width: 80px; /* Уменьшили размер примерно до 2х2 см */
+    margin-bottom: 25px;
+    /* ... остальные ваши настройки (mix-blend-mode, маски) остаются без изменений ... */
 }
 .progress-bar-container {
     width: 220px;
