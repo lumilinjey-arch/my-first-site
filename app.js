@@ -37,3 +37,13 @@ window.addEventListener('resize', () => {
     camera.updateProjectionMatrix();
     renderer.setSize(container.clientWidth, container.clientHeight);
 });
+JavaScript
+// Логика загрузочного экрана
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    
+    // Ждем 2.2 секунды (чтобы полоска успела заполниться), затем скрываем
+    setTimeout(() => {
+        preloader.classList.add('preloader-hidden');
+    }, 2200);
+});
