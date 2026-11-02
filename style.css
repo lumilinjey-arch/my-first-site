@@ -234,7 +234,74 @@ p {
     z-index: 1; /* Находится ЗА терминалом */
 }
 
+/* Fund Numbers Section */
+.fund-numbers {
+    padding: 100px 5%;
+    position: relative;
+    z-index: 10;
+    background: linear-gradient(180deg, rgba(5,5,10,0) 0%, rgba(17,17,43,0.2) 100%);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+.section-header {
+    margin-bottom: 50px;
+}
+.section-header h2 {
+    font-size: 42px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 10px 0 0 0;
+    color: #ffffff;
+}
+.numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
 
+/* Киберпанк карточки */
+.number-card {
+    background: rgba(10, 10, 20, 0.6);
+    border: 1px solid rgba(92, 77, 255, 0.2);
+    border-left: 3px solid #5c4dff; /* Неоновый акцент слева */
+    padding: 30px 20px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.number-card:hover {
+    background: rgba(92, 77, 255, 0.05);
+    border-color: #5c4dff;
+    box-shadow: 0 0 20px rgba(92, 77, 255, 0.15);
+    transform: translateY(-5px);
+}
+/* Анимация сканирующего блика при наведении */
+.number-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    transition: left 0.5s ease;
+}
+.number-card:hover::after {
+    left: 100%;
+}
+.number-card h3 {
+    font-size: 32px;
+    color: #fff;
+    margin: 0 0 15px 0;
+    font-family: monospace; /* Терминальный шрифт для цифр */
+}
+.number-card p {
+    font-size: 11px;
+    color: #8a8a9d;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: monospace;
+    line-height: 1.5;
+}
 /* Адаптивность для мобильных устройств (смартфоны и планшеты) */
 @media (max-width: 1024px) {
     /* Перестраиваем шапку: меню под логотипом */
