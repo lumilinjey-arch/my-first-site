@@ -387,4 +387,12 @@ p {
         right: 0;
         z-index: 0; /* Уводим на задний план */
     }
+    /* Адаптив для секции цифр (планшеты) */
+    .section-header h2 { font-size: 32px; }
+    .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 600px) {
+    /* Адаптив для секции цифр (телефоны) */
+    .numbers-grid { grid-template-columns: 1fr; }
+    .fund-numbers { padding: 60px 20px; }
+}
 }
