@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZKForge Capital | Web3 Ventures</title>
+    <!-- Подключаем наш будущий файл дизайна -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем библиотеку Three.js для 3D графики -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">ZKForge Capital</div>
+        <nav>
+            <a href="#portfolio">Портфолио</a>
+            <a href="#thesis">Тезисы</a>
+            <a href="#contact">Пич-дек</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Капитал для архитектуры Web3 и AI</h1>
+                <p>Мы инвестируем в инфраструктурные проекты на ранней стадии.</p>
+                <button class="cta-button">Отправить проект</button>
+            </div>
+            <!-- В этом контейнере будет крутиться 3D-модель -->
+            <div id="webgl-container"></div>
+        </section>
+    </main>
+
+    <!-- Подключаем наш будущий файл с логикой -->
+    <script src="app.js"></script>
+</body>
+</html>
