@@ -1,48 +1,46 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZKForge Capital | Web3 Ventures</title>
-    <!-- Подключаем наш будущий файл дизайна -->
+    <title>zkSynergy | Web3 & AI Ventures</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Подключаем библиотеку Three.js для 3D графики -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-   HTML
-    <!-- Загрузочный экран -->
+    <!-- Preloader -->
     <div id="preloader">
         <div class="preloader-content">
-            <img src="logo.png" alt="zkSynergy Logo" class="preloader-logo">
+            <img src="logo.png" alt="zkSynergy" class="preloader-logo">
             <div class="progress-bar-container">
                 <div class="progress-bar"></div>
             </div>
-            <div class="preloader-text">ZKSYNERGY.IO</div>
+            <div class="preloader-text">INITIALIZING ZKSYNERGY.IO</div>
         </div>
     </div>
+
+    <!-- Header -->
     <header>
-        <div class="logo">ZKForge Capital</div>
+        <div class="logo">zkSynergy</div>
         <nav>
-            <a href="#portfolio">Портфолио</a>
-            <a href="#thesis">Тезисы</a>
-            <a href="#contact">Пич-дек</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#thesis">Thesis</a>
+            <a href="#pitch">Pitch Deck</a>
         </nav>
     </header>
     
+    <!-- Hero Section -->
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>Капитал для архитектуры Web3 и AI</h1>
-                <p>Мы инвестируем в инфраструктурные проекты на ранней стадии.</p>
-                <button class="cta-button">Отправить проект</button>
+                <h1>Capital for Web3 & AI Architecture</h1>
+                <p>We invest in early-stage infrastructure protocols, zero-knowledge networks, and decentralized agents.</p>
+                <button class="cta-button">Submit Project</button>
             </div>
-            <!-- В этом контейнере будет крутиться 3D-модель -->
             <div id="webgl-container"></div>
         </section>
     </main>
 
-    <!-- Подключаем наш будущий файл с логикой -->
     <script src="app.js"></script>
 </body>
 </html>
