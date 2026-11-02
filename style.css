@@ -89,3 +89,69 @@ p {
     height: 100%;
     z-index: 1;
 }
+CSS
+/* Preloader Styles */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Радиальный градиент: от темно-синего в центре к темно-фиолетовому по краям */
+    background: radial-gradient(circle, #0a1128 0%, #130026 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* Плавное исчезновение */
+    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+}
+
+.preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preloader-logo {
+    width: 180px; 
+    margin-bottom: 30px;
+    /* Это свойство скрывает черный/темный фон картинки, оставляя только светлое лого */
+    mix-blend-mode: screen; 
+}
+
+.progress-bar-container {
+    width: 220px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #7b61ff; /* Фиолетово-синий акцент для полоски */
+    /* Анимация заполнения длительностью 2 секунды */
+    animation: loading 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes loading {
+    0% { width: 0%; }
+    40% { width: 45%; }
+    100% { width: 100%; }
+}
+
+.preloader-text {
+    color: #8a8a9d;
+    font-size: 10px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+
+/* Класс для скрытия прелоадера */
+.preloader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
