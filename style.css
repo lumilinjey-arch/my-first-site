@@ -236,51 +236,88 @@ p {
 
 
 /* Адаптивность для мобильных устройств (смартфоны и планшеты) */
-@media (max-width: 768px) {
-    /* Перестраиваем шапку: логотип сверху, меню под ним */
+@media (max-width: 1024px) {
+    /* Перестраиваем шапку: меню под логотипом */
     header {
         flex-direction: column;
-        padding: 15px 20px;
-        background: rgba(5, 5, 10, 0.95); /* Делаем фон плотнее, чтобы текст не сливался */
-    }
-    .logo {
-        margin-bottom: 12px;
+        padding: 15px;
+        gap: 15px;
     }
     nav {
-        display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 15px;
     }
-    nav a {
-        margin-left: 0;
-        font-size: 12px;
+    .header-btn {
+        display: none; /* Прячем верхнюю кнопку Apply, чтобы не перегружать шапку, она дублируется ниже */
+    }
+
+    /* Главный экран: колонки друг под другом */
+    .hero {
+        flex-direction: column;
+        padding: 160px 20px 40px; /* Отступ сверху больше, чтобы шапка не перекрывала контент */
+        gap: 40px; /* Расстояние между текстом и терминалом */
     }
     
-    /* Центрируем текст и уменьшаем шрифты на главном экране */
-    .hero {
-        padding: 140px 20px 20px; /* Увеличиваем отступ сверху, чтобы шапка не перекрывала текст */
+    .hero-left, .hero-right {
+        width: 100%; /* Оба блока на всю ширину */
+    }
+
+    /* Выравнивание текста по центру */
+    .hero-left {
         text-align: center;
-        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    .hero-content {
-        margin: 0 auto;
-    }
+    
     h1 {
-        font-size: 32px;
-        margin-bottom: 15px;
+        font-size: 38px; /* Уменьшаем заголовок */
     }
+    
     p {
-        font-size: 15px;
+        max-width: 100%;
         margin-bottom: 30px;
     }
+
+    /* Кнопки: на всю ширину и друг под другом */
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        padding: 18px 25px; /* Делаем кнопки удобнее для нажатия пальцем */
+    }
+
+    /* Статистика: перенос на новые строки */
+    .hero-stats {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px 30px;
+        width: 100%;
+    }
     
-    /* 3D-модель уводим в нижнюю половину экрана */
+    /* Теги: перенос на новые строки */
+    .hero-tags {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Терминал: отступы */
+    .terminal-card {
+        margin-bottom: 200px; /* Оставляем место внизу для 3D-модели */
+    }
+
+    /* 3D-модель: перемещаем вниз и центрируем */
     #webgl-container {
         width: 100%;
-        height: 50%;
+        height: 300px; /* Фиксированная высота для мобильных */
         top: auto;
         bottom: 0;
         right: 0;
+        z-index: 0; /* Уводим на задний план */
     }
 }
