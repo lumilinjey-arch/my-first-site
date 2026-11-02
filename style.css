@@ -1,157 +1,141 @@
-body {
+/* Base Styles */
+body, html {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0b0b0f;
+    padding: 0;
+    font-family: 'Segoe UI', -apple-system, sans-serif;
+    background-color: #05050a; /* Очень темный, почти черный фон */
     color: #ffffff;
     overflow-x: hidden;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background: rgba(11, 11, 15, 0.8);
-    backdrop-filter: blur(10px);
-    position: fixed;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 100;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: #00ffcc;
-}
-
-nav a {
-    color: #a0a0b5;
-    text-decoration: none;
-    margin-left: 30px;
-    font-size: 14px;
-    text-transform: uppercase;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #ffffff;
-}
-
-.hero {
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    padding: 0 50px;
-    position: relative;
-}
-
-.hero-content {
-    max-width: 600px;
-    z-index: 10;
-}
-
-h1 {
-    font-size: 48px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
-p {
-    font-size: 18px;
-    color: #8a8a9d;
-    margin-bottom: 40px;
-}
-
-.cta-button {
-    padding: 15px 35px;
-    background-color: #00ffcc;
-    color: #000000;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 255, 204, 0.3);
-}
-
-#webgl-container {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    z-index: 1;
-}
-CSS
-/* Preloader Styles */
+/* Preloader */
 #preloader {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    /* Радиальный градиент: от темно-синего в центре к темно-фиолетовому по краям */
-    background: radial-gradient(circle, #0a1128 0%, #130026 100%);
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, #11112b 0%, #05050a 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
-    /* Плавное исчезновение */
-    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+    z-index: 99999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
 }
-
 .preloader-content {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .preloader-logo {
-    width: 180px; 
-    margin-bottom: 30px;
-    /* Это свойство скрывает черный/темный фон картинки, оставляя только светлое лого */
-    mix-blend-mode: screen; 
+    width: 160px;
+    margin-bottom: 25px;
+    mix-blend-mode: screen; /* Убирает темный фон вокруг логотипа */
 }
-
 .progress-bar-container {
     width: 220px;
     height: 2px;
     background-color: rgba(255, 255, 255, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     overflow: hidden;
 }
-
 .progress-bar {
     width: 0%;
     height: 100%;
-    background-color: #7b61ff; /* Фиолетово-синий акцент для полоски */
-    /* Анимация заполнения длительностью 2 секунды */
-    animation: loading 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    background-color: #5c4dff; /* Фиолетово-синий акцент */
+    animation: loadProgress 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
-
-@keyframes loading {
+@keyframes loadProgress {
     0% { width: 0%; }
     40% { width: 45%; }
     100% { width: 100%; }
 }
-
 .preloader-text {
-    color: #8a8a9d;
-    font-size: 10px;
-    letter-spacing: 6px;
-    text-transform: uppercase;
+    color: #6a6a8a;
+    font-size: 9px;
+    letter-spacing: 5px;
     font-family: monospace;
 }
-
-/* Класс для скрытия прелоадера */
 .preloader-hidden {
     opacity: 0;
     visibility: hidden;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 50px;
+    box-sizing: border-box;
+    background: rgba(5, 5, 10, 0.7);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+nav a {
+    color: #a0a0b5;
+    text-decoration: none;
+    margin-left: 40px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+nav a:hover { color: #ffffff; }
+
+/* Hero */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    position: relative;
+}
+.hero-content {
+    max-width: 600px;
+    z-index: 10;
+}
+h1 {
+    font-size: 52px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+p {
+    font-size: 18px;
+    color: #8a8a9d;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+.cta-button {
+    padding: 16px 35px;
+    background: #5c4dff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+.cta-button:hover {
+    background: #7b61ff;
+    box-shadow: 0 0 20px rgba(123, 97, 255, 0.4);
+}
+
+/* 3D Container */
+#webgl-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55%;
+    height: 100%;
+    z-index: 1;
 }
