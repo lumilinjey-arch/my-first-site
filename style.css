@@ -139,3 +139,54 @@ p {
     height: 100%;
     z-index: 1;
 }
+
+
+/* Адаптивность для мобильных устройств (смартфоны и планшеты) */
+@media (max-width: 768px) {
+    /* Перестраиваем шапку: логотип сверху, меню под ним */
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+        background: rgba(5, 5, 10, 0.95); /* Делаем фон плотнее, чтобы текст не сливался */
+    }
+    .logo {
+        margin-bottom: 12px;
+    }
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    nav a {
+        margin-left: 0;
+        font-size: 12px;
+    }
+    
+    /* Центрируем текст и уменьшаем шрифты на главном экране */
+    .hero {
+        padding: 140px 20px 20px; /* Увеличиваем отступ сверху, чтобы шапка не перекрывала текст */
+        text-align: center;
+        align-items: flex-start;
+    }
+    .hero-content {
+        margin: 0 auto;
+    }
+    h1 {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+    p {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+    
+    /* 3D-модель уводим в нижнюю половину экрана */
+    #webgl-container {
+        width: 100%;
+        height: 50%;
+        top: auto;
+        bottom: 0;
+        right: 0;
+    }
+}
