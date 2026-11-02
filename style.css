@@ -392,7 +392,23 @@ p {
     .numbers-grid { grid-template-columns: repeat(2, 1fr); }
     @media (max-width: 600px) {
     /* Адаптив для секции цифр (телефоны) */
-    .numbers-grid { grid-template-columns: 1fr; }
-    .fund-numbers { padding: 60px 20px; }
+    .fund-numbers { 
+        padding: 50px 15px; 
+    }
+    .numbers-grid { 
+        /* Делаем строго 2 колонки */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px; /* Уменьшаем расстояние между карточками */
+    }
+    .number-card {
+        padding: 20px 15px; /* Уменьшаем внутренние поля, чтобы влез текст */
+    }
+    .number-card h3 {
+        font-size: 24px; /* Делаем цифры чуть компактнее */
+        margin-bottom: 10px;
+    }
+    .number-card p {
+        font-size: 9px; /* Немного уменьшаем шрифт описания */
+    }
 }
 }
