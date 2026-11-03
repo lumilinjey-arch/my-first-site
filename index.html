@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>zkSynergy | Web3 & AI Ventures</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Подключение Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
     <!-- Preloader -->
     <div id="preloader">
         <div class="preloader-content">
-            <img src="logo.png" alt="zkSynergy" class="preloader-logo">
+            <div class="preloader-logo">zkSynergy</div>
             <div class="progress-bar-container">
                 <div class="progress-bar"></div>
             </div>
@@ -22,19 +23,21 @@
     <!-- Header -->
     <header>
         <div class="header-left">
-            <div class="logo">zkSynergy</div>
+            <div class="logo"><span class="zk">zk</span>Synergy</div>
         </div>
         <nav>
             <a href="#about">What We Do</a>
             <a href="#portfolio">Portfolio</a>
+            <a href="#case">Case Study</a>
+            <a href="#coalition">Coalition</a>
             <a href="#thesis">Thesis</a>
             <a href="#events">Events</a>
         </nav>
-        <button class="header-btn">Apply</button>
+        <a href="#apply" class="header-btn">Apply</a>
     </header>
     
-    <!-- Hero Section -->
     <main>
+        <!-- Hero Section -->
         <section class="hero">
             <div class="hero-left">
                 <div class="tech-label"><span>[</span> AI VENTURE CAPITAL • INCUBATION • LAUNCHPAD <span>]</span></div>
@@ -42,7 +45,7 @@
                 <p>We back founders early and build beside them: idea → MVP → grant → incubation → token launch. Not just a check – hands-on support all the way to your round.</p>
                 
                 <div class="hero-actions">
-                    <button class="btn-primary">APPLY WITH YOUR PROJECT <span class="arrow">→</span></button>
+                    <a href="#apply" class="btn-primary">APPLY WITH YOUR PROJECT <span class="arrow">→</span></a>
                     <button class="btn-secondary">FIND YOUR TRACK</button>
                 </div>
 
@@ -95,6 +98,7 @@
             
             <div id="webgl-container"></div>
         </section>
+
         <!-- Fund Numbers Section -->
         <section id="numbers" class="fund-numbers">
             <div class="section-header">
@@ -102,41 +106,284 @@
                 <h2>Numbers, not promises</h2>
             </div>
             <div class="numbers-grid">
-                <div class="number-card">
-                    <h3>$48M</h3>
-                    <p>Capital Under Management (Committed)</p>
+                <div class="number-card"><h3>$48M</h3><p>Capital Under Management</p></div>
+                <div class="number-card"><h3>37</h3><p>Portfolio Companies</p></div>
+                <div class="number-card"><h3>$94.2M</h3><p>Raised by Portfolio</p></div>
+                <div class="number-card"><h3>14</h3><p>Token Launches Via Our Launchpad</p></div>
+                <div class="number-card"><h3>$3.1M</h3><p>Grants Deployed</p></div>
+                <div class="number-card"><h3>120+</h3><p>Private Investors in Coalition</p></div>
+                <div class="number-card"><h3>90 days</h3><p>Average Idea-to-TGE Timeline</p></div>
+                <div class="number-card"><h3>18</h3><p>AI Agents in Portfolio</p></div>
+            </div>
+        </section>
+
+        <!-- What We Do Section -->
+        <section id="about" class="what-we-do">
+            <div class="section-header">
+                <div class="tech-label"><span>[</span> WHAT WE DO <span>]</span></div>
+                <h2>A full stack of support — from idea to round</h2>
+                <p class="section-subtitle">You bring an idea or an early product. We cover the rest: capital, engineering, liquidity and growth.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card"><div class="card-icon">◈</div><div class="card-step">01 — LAUNCHPAD</div><h3>LAUNCHPAD</h3><p>We prep you for TGE: tokenomics, ICO/IDO structure, listings and market making.</p><div class="card-tags">ICO · IDO · LISTINGS</div></div>
+                <div class="service-card"><div class="card-icon">▤</div><div class="card-step">02 — INCUBATION</div><h3>INCUBATION</h3><p>We take projects end-to-end: strategy, hiring, product and ops. We work like co-founders.</p><div class="card-tags">HANDS ON</div></div>
+                <div class="service-card"><div class="card-icon">⟠</div><div class="card-step">03 — MVP STUDIO</div><h3>MVP DEVELOPMENT</h3><p>Our team ships a working smart-contract MVP in weeks - from prototype to audit to deploy.</p><div class="card-tags">CONTRACTS · FRONTEND</div></div>
+                <div class="service-card"><div class="card-icon">◬</div><div class="card-step">04 — GRANTS</div><h3>GRANTS FOR IDEAS</h3><p>We fund strong ideas at the earliest stage - no dilution upfront. $5K-$75K to validate.</p><div class="card-tags">PRE-SEED · IDEA</div></div>
+                <div class="service-card"><div class="card-icon">⚲</div><div class="card-step">05 — GROWTH</div><h3>MARKETING & GROWTH</h3><p>KOLs, community, content and performance. We launch the narrative.</p><div class="card-tags">KOL · PR</div></div>
+                <div class="service-card"><div class="card-icon">⚙</div><div class="card-step">06 — AI & ZK THESIS</div><h3>AI FOCUS</h3><p>On-chain AI agents are our core thesis. We join every strong round.</p><div class="card-tags">AI AGENTS · ZK</div></div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio-section">
+            <div class="section-header">
+                <div class="tech-label"><span>[</span> PORTFOLIO <span>]</span></div>
+                <h2>We back on-chain AI, DefAI, and the ZK stack</h2>
+                <p class="section-subtitle">From decentralized compute and modular liquidity to zero-knowledge L2s.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card highlight"><div class="card-ticker">$REPX</div><h3>REPOSWAP</h3><div class="card-badge">★ LEAD · INCUBATED</div><p>AI agent for swaps and liquidity routing.</p></div>
+                <div class="portfolio-card"><div class="card-ticker">$ELX</div><h3>ELIXIR NETWORK</h3><div class="card-badge">SERIES B</div><p>Modular liquidity network for DEXs.</p></div>
+                <div class="portfolio-card"><div class="card-ticker">$IO</div><h3>IO.NET</h3><div class="card-badge">REALIZED</div><p>Decentralized GPU compute network.</p></div>
+                <div class="portfolio-card"><div class="card-ticker">$ATH</div><h3>AETHIR</h3><div class="card-badge">REALIZED</div><p>Decentralized GPU cloud for AI & gaming.</p></div>
+                <div class="portfolio-card"><div class="card-ticker">COMPUTE</div><h3>GENSYN</h3><div class="card-badge">EARLY-STAGE</div><p>Decentralized compute for ML training.</p></div>
+                <div class="portfolio-card"><div class="card-ticker">zkL2</div><h3>AZTEC</h3><div class="card-badge">TOKEN · VESTING</div><p>Privacy-focused zero-knowledge L2.</p></div>
+                <div class="portfolio-card"><div class="card-ticker">DATA</div><h3>PUBLICAI</h3><div class="card-badge">SEED</div><p>Decentralized data network for AI.</p></div>
+                <div class="portfolio-card"><div class="card-ticker">AI-DAO</div><h3>WAGGLE NETWORK</h3><div class="card-badge">EARLY-STAGE</div><p>AI agents for on-chain governance.</p></div>
+                <div class="portfolio-card"><div class="card-ticker">DEFI</div><h3>TERRACE</h3><div class="card-badge">EARLY-STAGE</div><p>On-chain asset management platform.</p></div>
+            </div>
+        </section>
+
+        <!-- Case Study Section -->
+        <section id="case" class="case-study-section">
+            <div id="case-webgl-container"></div>
+            <div class="section-header">
+                <div class="tech-label"><span>[</span> CASE STUDY <span>]</span></div>
+                <h2>RepoSwap — from idea to $3.4M</h2>
+            </div>
+            <div class="case-card">
+                <div class="corner top-left"></div><div class="corner top-right"></div>
+                <div class="corner bottom-left"></div><div class="corner bottom-right"></div>
+
+                <div class="case-content-left">
+                    <h3 class="case-ticker">$REPX</h3>
+                    <h4 class="case-subtitle">REPOSWAP - AI SWAP AGENT</h4>
+                    <p class="case-description">The team came to us with a prototype AI agent for optimal swaps. We led the round, built the MVP with them, packaged the tokenomics and took it to the launchpad.</p>
+                    <blockquote class="case-quote">"zkSynergy closed the capital, the product and the narrative for us. One cycle turned an idea into a real round."</blockquote>
                 </div>
-                <div class="number-card">
-                    <h3>37</h3>
-                    <p>Portfolio Companies</p>
-                </div>
-                <div class="number-card">
-                    <h3>$94.2M</h3>
-                    <p>Raised by Portfolio Across Rounds</p>
-                </div>
-                <div class="number-card">
-                    <h3>14</h3>
-                    <p>Token Launches Via Our Launchpad</p>
-                </div>
-                <div class="number-card">
-                    <h3>$3.1M</h3>
-                    <p>Grants Deployed to 60+ Teams</p>
-                </div>
-                <div class="number-card">
-                    <h3>120+</h3>
-                    <p>Private Investors in the Coalition</p>
-                </div>
-                <div class="number-card">
-                    <h3>90 days</h3>
-                    <p>Average Idea-to-TGE Timeline</p>
-                </div>
-                <div class="number-card">
-                    <h3>18</h3>
-                    <p>AI Agents in the Active Portfolio</p>
+                <div class="case-content-right">
+                    <div class="case-stat"><span class="stat-value highlight-cyan">$3.4M</span><span class="stat-label">RAISED</span></div>
+                    <div class="case-stat"><span class="stat-value highlight-cyan">+312%</span><span class="stat-label">$REPX SINCE TGE</span></div>
+                    <div class="case-stat"><span class="stat-value highlight-cyan">9 wks</span><span class="stat-label">TO LISTING</span></div>
+                    <div class="case-stat"><span class="stat-value highlight-cyan">Lead</span><span class="stat-label">ROLE IN ROUND</span></div>
                 </div>
             </div>
         </section>
-  </main>
+
+        <!-- Coalition Section -->
+        <section id="coalition" class="coalition-section">
+            <div class="section-header">
+                <div class="tech-label"><span>[</span> INVESTOR COALITION <span>]</span></div>
+                <h2>The zkSynergy private syndicate — now open</h2>
+                <p class="section-subtitle">We open our deal flow to private investors. Get into the same rounds as the fund, on the same terms.</p>
+            </div>
+            <div class="coalition-layout">
+                <div class="coalition-left">
+                    <div class="coalition-feature"><h4><span class="square">■</span> ACCESS TO DEAL FLOW</h4><p>Early rounds in AI agents and infrastructure.</p></div>
+                    <div class="coalition-feature"><h4><span class="square">■</span> FUND ALLOCATIONS</h4><p>The same allocation and terms zkSynergy gets.</p></div>
+                    <div class="coalition-feature"><h4><span class="square">■</span> DUE DILIGENCE</h4><p>Our team vets the contracts and the tokenomics.</p></div>
+                    <div class="coalition-feature"><h4><span class="square">■</span> CLOSED COMMUNITY</h4><p>Private research, alpha and calls.</p></div>
+                </div>
+                <div class="coalition-right">
+                    <div id="coalition-webgl-container"></div>
+                    <div class="terms-card">
+                        <div class="corner top-left"></div><div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div><div class="corner bottom-right"></div>
+                        <div class="terms-header">TERMS OF ENTRY</div>
+                        <div class="terms-row"><span class="terms-label">MINIMUM CHECK</span><span class="terms-value">$5,000</span></div>
+                        <div class="terms-row"><span class="terms-label">DEAL CADENCE</span><span class="terms-value">monthly</span></div>
+                        <div class="terms-row"><span class="terms-label">MEMBERS NOW</span><span class="terms-value">120+</span></div>
+                        <div class="terms-row"><span class="terms-label">SEATS OPEN</span><span class="terms-value">limited</span></div>
+                        <a href="#apply" class="btn-primary btn-coalition">APPLY TO THE COALITION</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Thesis Section -->
+        <section id="thesis" class="thesis-section">
+            <div id="thesis-webgl-container"></div>
+            <div class="section-header">
+                <div class="tech-label"><span>[</span> OUR THESIS <span>]</span></div>
+                <h2>The convergence of AI and Crypto</h2>
+                <p class="section-subtitle">We invest at the intersection of decentralized intelligence and cryptographic truth.</p>
+            </div>
+            <div class="thesis-grid">
+                <div class="thesis-card"><div class="thesis-number">01 //</div><h3>AI AGENTS</h3><p>Autonomous agents will become the primary users of blockspace, routing liquidity without human input.</p></div>
+                <div class="thesis-card"><div class="thesis-number">02 //</div><h3>VERIFIABLE COMPUTE</h3><p>Zero-knowledge proofs will bridge the gap between heavy off-chain AI inference and on-chain verification.</p></div>
+                <div class="thesis-card"><div class="thesis-number">03 //</div><h3>DECENTRALIZED HARDWARE</h3><p>The AI revolution requires permissionless GPU networks and data availability layers.</p></div>
+            </div>
+        </section>
+        <!-- Interactive VC Simulator Section -->
+        <section id="simulator" class="simulator-section">
+            <div class="section-header">
+                <div class="tech-label"><span>[</span> CYBER-SIMULATOR <span>]</span></div>
+                <h2>Test your VC intuition</h2>
+                <p class="section-subtitle">Evaluate 3 raw Web3/AI pitches in real-time. See if you can spot the next unicorn before the market does.</p>
+            </div>
+
+            <div class="terminal-card sim-card">
+                <div class="terminal-header">
+                    <div class="dots">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    </div>
+                    <span class="terminal-title">zksynergy://deal-flow-simulator.exe</span>
+                </div>
+                <div class="terminal-body" id="sim-body">
+                    <!-- Шаг 1: Интро / Старт -->
+                    <div id="sim-screen-start" class="sim-screen">
+                        <p>> initializing neural deal-flow parser...</p>
+                        <p>> status: <span class="text-accent">READY FOR EVALUATION</span></p>
+                        <br>
+                        <p>You will be presented with 3 anonymous pitch decks from our pipeline. Make your call: <span class="text-white">INVEST</span> or <span class="text-white" style="color: #ff5f56;">PASS</span>.</p>
+                        <br>
+                        <button id="sim-start-btn" class="btn-primary" style="margin-top: 15px;">START EVALUATION →</button>
+                    </div>
+
+                    <!-- Шаг 2: Карточки проектов (динамические) -->
+                    <div id="sim-screen-game" class="sim-screen" style="display: none;">
+                        <div class="sim-progress">PITCH <span id="sim-current-round">1</span> / 3</div>
+                        <div class="sim-pitch-box">
+                            <h3 id="sim-pitch-title" style="color: #00e5ff; margin-top: 0;">PROJECT NAME</h3>
+                            <p id="sim-pitch-desc" style="color: #fff; line-height: 1.6; font-size: 15px;"></p>
+                            <div class="sim-metrics-grid">
+                                <div class="t-row"><span>SECTOR:</span><span id="sim-metric-sector">-</span></div>
+                                <div class="t-row"><span>ASK:</span><span id="sim-metric-ask">-</span></div>
+                                <div class="t-row"><span>TEAM BACKGROUND:</span><span id="sim-metric-team">-</span></div>
+                            </div>
+                        </div>
+                        <div class="sim-actions">
+                            <button id="sim-pass-btn" class="btn-secondary" style="border-color: #ff5f56; color: #ff5f56;">[ PASS ]</button>
+                            <button id="sim-invest-btn" class="btn-primary">[ INVEST $500K ]</button>
+                        </div>
+                    </div>
+
+                    <!-- Шаг 3: Финал / Результаты -->
+                    <div id="sim-screen-result" class="sim-screen" style="display: none;">
+                        <p>> simulation complete. analyzing decisions...</p>
+                        <h3 style="color: #00e5ff; font-size: 24px; margin: 15px 0;">YOUR PORTFOLIO SCORE: <span id="sim-score">0</span>/3</h3>
+                        <p id="sim-result-text" style="color: #a0a0b5; line-height: 1.6;"></p>
+                        <br>
+                        <div class="hero-actions" style="justify-content: center; margin-top: 20px;">
+                            <a href="#apply" class="btn-primary">APPLY WITH YOUR ACTUAL PROJECT →</a>
+                            <button id="sim-restart-btn" class="btn-secondary">RE-RUN SIMULATION</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="events-section">
+            <div id="events-webgl-container"></div>
+            <div class="section-header">
+                <div class="tech-label"><span>[</span> GLOBAL PRESENCE <span>]</span></div>
+                <h2>Where capital meets code in real life</h2>
+                <p class="section-subtitle">We don't just attend conferences. We build ecosystems. zkSynergy hosts exclusive hacker houses, private syndicate dinners, and deep-dive technical workshops across the globe.</p>
+            </div>
+            <div class="events-layout">
+                <div class="event-featured">
+                    <div class="event-glow"></div>
+                    <div class="event-date">SEP 18-19, 2026 // SINGAPORE</div>
+                    <h3 class="event-title">TOKEN2049: The ZK & AI Summit</h3>
+                    <p class="event-desc">Experience our flagship side-event of the year. Two days of intense networking, private pitch sessions, and keynote panels featuring founders from our portfolio.</p>
+                    <div class="event-tags"><span>■ VIP DINNER</span><span>■ HACKER HOUSE</span><span>■ PITCH DAY</span></div>
+                    <a href="#apply" class="btn-primary event-btn">REQUEST AN INVITE</a>
+                </div>
+                <div class="events-list">
+                    <div class="event-item"><div class="event-date-small">NOV 12, 2026 // BANGKOK</div><h4>Devcon 7: Autonomous Agents</h4><p>An exclusive evening for developers building the next generation of on-chain AI.</p></div>
+                    <div class="event-item"><div class="event-date-small">FEB 28, 2027 // DENVER</div><h4>ETHDenver: Compute & Liquidity</h4><p>Co-hosting the largest DePIN and DefAI infrastructure track.</p></div>
+                    <div class="event-item"><div class="event-date-small">JUL 08, 2027 // BRUSSELS</div><h4>EthCC: The Privacy Panel</h4><p>A curated dinner focused on modular blockchains and verifiable compute.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact/Stats Section -->
+        <section class="impact-section">
+            <div id="impact-webgl-container"></div>
+            <div class="impact-container">
+                <div class="tech-label justify-center"><span>[</span> SINCE 2024 <span>]</span></div>
+                <h2 class="massive-stat">$94.2M</h2>
+                <div class="stat-divider"></div>
+                <p class="impact-text">raised by the <span class="text-white">37 companies</span> we backed. Fourteen of them went to TGE with us. One started as a deck.</p>
+                <div class="impact-bottom-stats">
+                    <div class="micro-stat"><span class="highlight-cyan">14</span> TOKEN LAUNCHES</div>
+                    <div class="micro-stat"><span class="highlight-cyan">+312%</span> $REPX SINCE TGE</div>
+                    <div class="micro-stat"><span class="highlight-cyan">120+</span> PRIVATE INVESTORS</div>
+                    <div class="micro-stat"><span class="highlight-cyan">90 DAYS</span> IDEA TO TGE</div>
+                </div>
+            </div>
+        </section>
+    </main>
+<!-- Ticker Tape (Бегущая строка) -->
+<div class="ticker-wrap">
+    <div class="ticker-move">
+        <div class="ticker-item">// DEPLOYING CAPITAL</div>
+        <div class="ticker-item">// BACKING FOUNDERS</div>
+        <div class="ticker-item">// ZERO KNOWLEDGE</div>
+        <div class="ticker-item">// AUTONOMOUS AGENTS</div>
+        <div class="ticker-item">// ON-CHAIN AI</div>
+        <div class="ticker-item">// MODULAR LIQUIDITY</div>
+        <div class="ticker-item">// DEPLOYING CAPITAL</div>
+        <div class="ticker-item">// BACKING FOUNDERS</div>
+        <div class="ticker-item">// ZERO KNOWLEDGE</div>
+        <div class="ticker-item">// AUTONOMOUS AGENTS</div>
+        <div class="ticker-item">// ON-CHAIN AI</div>
+        <div class="ticker-item">// MODULAR LIQUIDITY</div>
+    </div>
+</div>
+
+<!-- Cyberpunk Footer (Минималистичный) -->
+<footer class="cyber-footer">
+    <div class="footer-content">
+        <div class="footer-left">
+            <div class="logo"><span class="zk">zk</span>Synergy</div>
+            <p class="footer-desc">Capital and code for the decentralized AI era.</p>
+        </div>
+        <div class="footer-right">
+            <div class="system-status">
+                <span class="status-dot"></span> SYSTEM ONLINE
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span class="copyright">© 2026 zkSynergy. All rights reserved.</span>
+    </div>
+</footer>
+    <!-- Terminal Modal Overlay -->
+    <div id="invite-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="corner top-left"></div><div class="corner top-right"></div>
+            <div class="corner bottom-left"></div><div class="corner bottom-right"></div>
+            <span class="close-modal" id="close-modal-btn">&times;</span>
+            
+            <div id="modal-form-container">
+                <div class="tech-label justify-center"><span>[</span> SYSTEM PROTOCOL <span>]</span></div>
+                <h3 class="modal-title">REQUEST ACCESS</h3>
+                <form id="invite-form">
+                    <div class="input-group"><label>AGENT NAME</label><input type="text" required placeholder="Enter your name"></div>
+                    <div class="input-group"><label>TELEGRAM / DISCORD</label><input type="text" required placeholder="@username"></div>
+                    <div class="input-group"><label>PROJECT / FUND</label><input type="text" required placeholder="What are you building?"></div>
+                    <button type="submit" class="btn-primary btn-full">SUBMIT REQUEST</button>
+                </form>
+            </div>
+            <div id="modal-success-container" style="display: none;">
+                <div class="success-icon">✔</div>
+                <h3 class="modal-title">REQUEST LOGGED</h3>
+                <p class="modal-desc">Your data has been securely transmitted. Our team will contact you if your profile matches the event criteria.</p>
+            </div>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>
