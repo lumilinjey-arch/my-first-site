@@ -20,30 +20,32 @@ if (heroContainer) {
     heroContainer.appendChild(rendererHero.domElement);
 
     const geoHero = new THREE.SphereGeometry(3, 32, 32);
-    const matHero = new THREE.MeshBasicMaterial({ 
-        color: 0x00e5ff, 
-        wireframe: true,
-        transparent: true,
-        opacity: 0.15 
-    });
-    const sphereHero = new THREE.Mesh(geoHero, matHero);
-    sceneHero.add(sphereHero);
+const matHero = new THREE.MeshBasicMaterial({ color: 0x00e5ff, wireframe: true, transparent: true, opacity: 0.15 });
+const sphereHero = new THREE.Mesh(geoHero, matHero);
+sceneHero.add(sphereHero);
+cameraHero.position.z = 6;
 
-    cameraHero.position.z = 6;
+// НОВОЕ: Отслеживаем координаты мыши для 3D сферы
+let targetRotationX = 0;
+let targetRotationY = 0;
 
-    function animateHero() {
-        requestAnimationFrame(animateHero);
-        sphereHero.rotation.x += 0.001;
-        sphereHero.rotation.y += 0.002;
-        rendererHero.render(sceneHero, cameraHero);
-    }
-    animateHero();
+document.addEventListener('mousemove', (event) => {
+    const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+    const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+    targetRotationY = mouseX * 0.5;
+    targetRotationX = mouseY * 0.5;
+});
 
-    window.addEventListener('resize', () => {
-        cameraHero.aspect = heroContainer.clientWidth / heroContainer.clientHeight;
-        cameraHero.updateProjectionMatrix();
-        rendererHero.setSize(heroContainer.clientWidth, heroContainer.clientHeight);
-    });
+function animateHero() {
+    requestAnimationFrame(animateHero);
+    // Базовое вращение
+    sphereHero.rotation.y += 0.002;
+    // Плавный поворот за мышью (эффект инерции)
+    sphereHero.rotation.x += 0.05 * (targetRotationX - sphereHero.rotation.x);
+    sphereHero.rotation.y += 0.05 * (targetRotationY - sphereHero.rotation.y);
+    rendererHero.render(sceneHero, cameraHero);
+}
+animateHero();
 }
 
 // 3. Логика 3D сцены для блока Case Study
@@ -470,3 +472,261 @@ if (simStartBtn) {
         }
     };
 }
+
+
+// 13. ROI Calculator Logic
+const roiCapital = document.getElementById('roi-capital');
+const roiTime = document.getElementById('roi-time');
+const roiCapitalVal = document.getElementById('roi-capital-val');
+const roiTimeVal = document.getElementById('roi-time-val');
+const roiMult = document.getElementById('roi-mult');
+const roiTotal = document.getElementById('roi-total');
+
+if (roiCapital && roiTime) {
+    const calculateROI = () => {
+        let cap = parseFloat(roiCapital.value);
+        let years = parseFloat(roiTime.value);
+        
+        // Формула венчурной симуляции: База 1.0x + (Время * Рост) * Бонус за объем капитала
+        let volumeBonus = 1 + (cap / 1000000); 
+        let multiplier = 1.0 + (years * 2.1) * volumeBonus;
+        
+        // Округление мультипликатора
+        multiplier = multiplier.toFixed(1);
+        let totalVal = Math.round(cap * multiplier);
+        
+        roiCapitalVal.innerText = cap.toLocaleString('en-US');
+        roiTimeVal.innerText = years;
+        roiMult.innerText = multiplier;
+        roiTotal.innerText = totalVal.toLocaleString('en-US');
+    };
+
+    roiCapital.addEventListener('input', calculateROI);
+    roiTime.addEventListener('input', calculateROI);
+    calculateROI(); // Инит при загрузке
+}
+
+// 14. Terminal FAQ (Typewriter Effect)
+const faqCmds = document.querySelectorAll('.faq-cmd');
+const faqTypewriter = document.getElementById('faq-typewriter');
+let typeInterval;
+
+faqCmds.forEach(cmd => {
+    cmd.addEventListener('click', () => {
+        // Убираем активный класс у всех, вешаем на текущую
+        faqCmds.forEach(c => c.classList.remove('active'));
+        cmd.classList.add('active');
+        
+        const answer = cmd.getAttribute('data-answer');
+        clearInterval(typeInterval);
+        faqTypewriter.innerText = '';
+        
+        let i = 0;
+        // Эффект печати текста
+        typeInterval = setInterval(() => {
+            if (i < answer.length) {
+                faqTypewriter.innerHTML += answer.charAt(i);
+                i++;
+            } else {
+                clearInterval(typeInterval);
+            }
+        }, 30); // Скорость печати (мс на символ)
+    });
+});
+// 15. Unified Live Crypto Ticker (Binance API для обеих строк)
+async function fetchCryptoPrices() {
+    try {
+        // Список монет для верхней (Global) и нижней (Portfolio) строки
+        const symbols = '["BTCUSDT","ETHUSDT","SOLUSDT","SUIUSDT","TONUSDT","LINKUSDT","FETUSDT","AVAXUSDT","IOUSDT","RENDERUSDT","TAOUSDT","GRTUSDT","WLDUSDT","ARUSDT","NEARUSDT"]';
+        const url = 'https://api.binance.com/api/v3/ticker/24hr?symbols=' + encodeURIComponent(symbols);
+        
+        const response = await fetch(url);
+        const data = await response.json();
+        
+        const priceMap = {};
+        data.forEach(item => {
+            const coin = item.symbol.replace('USDT', '');
+            priceMap[coin] = {
+                price: parseFloat(item.lastPrice),
+                change: parseFloat(item.priceChangePercent)
+            };
+        });
+
+        // 1. Обновляем верхнюю строку (Global Market)
+        const marketItems = document.querySelectorAll('.market-item');
+        marketItems.forEach(item => {
+            const coinEl = item.querySelector('.coin');
+            const priceEl = item.querySelector('.price');
+            const changeEl = item.querySelector('.change');
+            
+            if (coinEl && priceMap[coinEl.innerText]) {
+                const crypto = priceMap[coinEl.innerText];
+                let formattedPrice = crypto.price > 10 ? 
+                    crypto.price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : 
+                    crypto.price.toFixed(3);
+                    
+                priceEl.innerText = '$' + formattedPrice;
+                changeEl.innerText = (crypto.change >= 0 ? '+' : '') + crypto.change.toFixed(2) + '%';
+                changeEl.className = 'change ' + (crypto.change >= 0 ? 'pos' : 'neg');
+            }
+        });
+
+        // 2. Обновляем вторую строку (Portfolio / Инвестиции)
+        const portfolioItems = document.querySelectorAll('.live-item');
+        portfolioItems.forEach(item => {
+            const coinEl = item.querySelector('.p-coin');
+            const tickValEl = item.querySelector('.tick-val');
+            
+            if (coinEl && tickValEl && priceMap[coinEl.innerText]) {
+                const crypto = priceMap[coinEl.innerText];
+                
+                let formattedPrice = crypto.price > 10 ? 
+                    crypto.price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : 
+                    crypto.price.toFixed(3);
+                    
+                // Выводим: $Цена (+Процент)
+                tickValEl.innerText = '$' + formattedPrice + ' (' + (crypto.change >= 0 ? '+' : '') + crypto.change.toFixed(2) + '%)';
+                tickValEl.className = 'tick-val ' + (crypto.change >= 0 ? 'pos' : 'neg');
+            }
+        });
+    } catch (error) {
+        console.error("Ошибка загрузки курсов с Binance:", error);
+    }
+}
+
+// Запускаем сразу и обновляем каждые 10 секунд
+fetchCryptoPrices();
+setInterval(fetchCryptoPrices, 10000);
+// === 1. Шифрование главного заголовка ===
+const cipherTitle = document.querySelector('.cipher-heading');
+if (cipherTitle) {
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*";
+    const originalHTML = cipherTitle.innerHTML; 
+    const targetText = cipherTitle.getAttribute('data-text');
+    let iterations = 0;
+    const interval = setInterval(() => {
+        cipherTitle.innerText = targetText.split("").map((letter, index) => {
+            if (index < iterations) return targetText[index];
+            return letters[Math.floor(Math.random() * letters.length)];
+        }).join("");
+        if (iterations >= targetText.length) {
+            clearInterval(interval);
+            cipherTitle.innerHTML = originalHTML; // Возвращаем <br>
+        }
+        iterations += 1 / 3;
+    }, 30);
+}
+
+// === 2. Накрутка цифр (CountUp) ===
+const counters = document.querySelectorAll('.counter');
+setTimeout(() => { 
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const step = target / 50; 
+        let current = 0;
+        const updateCounter = () => {
+            current += step;
+            if (current < target) {
+                counter.innerText = Math.ceil(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCounter();
+    });
+}, 1500); 
+
+// === 3. Магнитные кнопки ===
+const magneticBtns = document.querySelectorAll('.hero .btn-primary, .hero .btn-secondary');
+magneticBtns.forEach(btn => {
+    btn.addEventListener('mousemove', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        this.classList.add('magnet-active');
+        this.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+    btn.addEventListener('mouseleave', function() {
+        this.classList.remove('magnet-active');
+        this.style.transform = 'translate(0px, 0px)';
+    });
+});
+
+// === 4. Загрузка терминала (Boot-up) ===
+const bootLogs = document.querySelectorAll('.boot-log');
+const terminalData = document.getElementById('terminal-data');
+const terminalBoot = document.getElementById('terminal-boot');
+if (bootLogs.length > 0 && terminalData) {
+    bootLogs.forEach((log, index) => {
+        setTimeout(() => { log.style.opacity = '1'; }, 500 + (index * 400));
+    });
+    setTimeout(() => {
+        terminalBoot.style.display = 'none';
+        terminalData.style.display = 'block';
+    }, 500 + (bootLogs.length * 400) + 600);
+}
+// === 5. Интерактивная строка CLI (Нажатие Enter) ===
+const cliInput = document.getElementById('cli-input');
+if (cliInput) {
+    cliInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const val = this.value.trim();
+            if (val === '') return;
+            
+            // Блокируем ввод и имитируем обработку
+            this.disabled = true; 
+            this.value = 'Processing request...';
+            this.style.color = '#00e5ff';
+            
+            setTimeout(() => {
+                // Перекидываем пользователя на форму заявки (якорь #apply)
+                window.location.href = '#apply'; 
+                
+                // Возвращаем строку в исходное состояние через секунду
+                setTimeout(() => {
+                    this.disabled = false;
+                    this.value = '';
+                    this.style.color = '#fff';
+                }, 1000);
+            }, 1000);
+        }
+    });
+}
+
+// === 6. Системные уведомления (Live Toasts) ===
+document.addEventListener('DOMContentLoaded', () => {
+    const toastContainer = document.getElementById('toast-container');
+    
+    if (!toastContainer) {
+        console.error("ОШИБКА: Контейнер для логов всё еще не найден!");
+        return; // Останавливаем работу, если контейнера нет
+    }
+
+    const toastMessages = [
+        "> ZK Prime AI: Scanning <span class='highlight'>GitHub repo</span> of stealth Web3 project...",
+        "> Pipeline update: <span class='highlight'>Qualifying</span> new founder...",
+        "> Deal flow: Smart contract audit <span class='highlight'>initiated</span>",
+        "> Alert: <span class='highlight'>$2M</span> Seed round syndication opened",
+        "> AI Agent: Analyzing Tokenomics whitepaper...",
+        "> Node synced: Deploying <span class='highlight'>testnet liquidity</span>"
+    ];
+
+    const showToast = () => {
+        const randomMsg = toastMessages[Math.floor(Math.random() * toastMessages.length)];
+        const toast = document.createElement('div');
+        toast.className = 'cyber-toast';
+        toast.innerHTML = randomMsg;
+        toastContainer.appendChild(toast);
+
+        setTimeout(() => {
+            if (toastContainer.contains(toast)) {
+                toastContainer.removeChild(toast);
+            }
+        }, 5000);
+    };
+
+    // Запускаем первый лог через секунду, остальные каждые 10 секунд
+    setTimeout(showToast, 1000);
+    setInterval(showToast, 10000);
+});

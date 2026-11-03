@@ -19,7 +19,28 @@
             <div class="preloader-text">INITIALIZING ZKSYNERGY.IO</div>
         </div>
     </div>
-
+<!-- Global Market Ticker (Top Bar) -->
+    <div class="market-ticker-top">
+        <div class="market-ticker-track">
+            <div class="market-item"><span class="coin">BTC</span><span class="price">$94,210.50</span><span class="change pos">+1.2%</span></div>
+            <div class="market-item"><span class="coin">ETH</span><span class="price">$3,840.12</span><span class="change pos">+2.4%</span></div>
+            <div class="market-item"><span class="coin">SOL</span><span class="price">$210.45</span><span class="change neg">-0.8%</span></div>
+            <div class="market-item"><span class="coin">SUI</span><span class="price">$1.85</span><span class="change pos">+5.1%</span></div>
+            <div class="market-item"><span class="coin">TON</span><span class="price">$6.90</span><span class="change pos">+0.3%</span></div>
+            <div class="market-item"><span class="coin">LINK</span><span class="price">$18.20</span><span class="change neg">-1.5%</span></div>
+            <div class="market-item"><span class="coin">FET</span><span class="price">$2.40</span><span class="change pos">+8.2%</span></div>
+            <div class="market-item"><span class="coin">AVAX</span><span class="price">$34.10</span><span class="change neg">-2.1%</span></div>
+            <!-- Дубликат для бесконечного скролла -->
+            <div class="market-item"><span class="coin">BTC</span><span class="price">$94,210.50</span><span class="change pos">+1.2%</span></div>
+            <div class="market-item"><span class="coin">ETH</span><span class="price">$3,840.12</span><span class="change pos">+2.4%</span></div>
+            <div class="market-item"><span class="coin">SOL</span><span class="price">$210.45</span><span class="change neg">-0.8%</span></div>
+            <div class="market-item"><span class="coin">SUI</span><span class="price">$1.85</span><span class="change pos">+5.1%</span></div>
+            <div class="market-item"><span class="coin">TON</span><span class="price">$6.90</span><span class="change pos">+0.3%</span></div>
+            <div class="market-item"><span class="coin">LINK</span><span class="price">$18.20</span><span class="change neg">-1.5%</span></div>
+            <div class="market-item"><span class="coin">FET</span><span class="price">$2.40</span><span class="change pos">+8.2%</span></div>
+            <div class="market-item"><span class="coin">AVAX</span><span class="price">$34.10</span><span class="change neg">-2.1%</span></div>
+        </div>
+    </div>
     <!-- Header -->
     <header>
         <div class="header-left">
@@ -35,34 +56,60 @@
         </nav>
         <a href="#apply" class="header-btn">Apply</a>
     </header>
-    
+    <!-- Live Portfolio Ticker -->
+<div class="live-ticker-bar">
+    <div class="live-ticker-track">
+        <div class="live-item"><span>$<span class="p-coin">IO</span></span> <span class="tick-val">...</span></div>
+        <div class="live-item"><span>$<span class="p-coin">RENDER</span></span> <span class="tick-val">...</span></div>
+        <div class="live-item"><span>$<span class="p-coin">TAO</span></span> <span class="tick-val">...</span></div>
+        <div class="live-item"><span>$<span class="p-coin">FET</span></span> <span class="tick-val">...</span></div>
+        <div class="live-item"><span>$<span class="p-coin">GRT</span></span> <span class="tick-val">...</span></div>
+        <div class="live-item"><span>$<span class="p-coin">WLD</span></span> <span class="tick-val">...</span></div>
+        <div class="live-item"><span>$<span class="p-coin">AR</span></span> <span class="tick-val">...</span></div>
+        <div class="live-item"><span>$<span class="p-coin">NEAR</span></span> <span class="tick-val">...</span></div>
+        
+        <!-- Дубликат для плавного скролла -->
+        <div class="live-item"><span>$<span class="p-coin">IO</span></span> <span class="tick-val">...</span></div>
+        <div class="live-item"><span>$<span class="p-coin">RENDER</span></span> <span class="tick-val">...</span></div>
+        <div class="live-item"><span>$<span class="p-coin">TAO</span></span> <span class="tick-val">...</span></div>
+        <div class="live-item"><span>$<span class="p-coin">FET</span></span> <span class="tick-val">...</span></div>
+        <div class="live-item"><span>$<span class="p-coin">GRT</span></span> <span class="tick-val">...</span></div>
+        <div class="live-item"><span>$<span class="p-coin">WLD</span></span> <span class="tick-val">...</span></div>
+        <div class="live-item"><span>$<span class="p-coin">AR</span></span> <span class="tick-val">...</span></div>
+        <div class="live-item"><span>$<span class="p-coin">NEAR</span></span> <span class="tick-val">...</span></div>
+    </div>
+</div>
     <main>
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-left">
                 <div class="tech-label"><span>[</span> AI VENTURE CAPITAL • INCUBATION • LAUNCHPAD <span>]</span></div>
-                <h1>FULL-CYCLE AI<br>VENTURE CAPITAL</h1>
+                <h1 class="cipher-heading" data-text="FULL-CYCLE AI VENTURE CAPITAL">FULL-CYCLE AI<br>VENTURE CAPITAL</h1>
                 <p>We back founders early and build beside them: idea → MVP → grant → incubation → token launch. Not just a check – hands-on support all the way to your round.</p>
                 
                 <div class="hero-actions">
                     <a href="#apply" class="btn-primary">APPLY WITH YOUR PROJECT <span class="arrow">→</span></a>
                     <button class="btn-secondary">FIND YOUR TRACK</button>
                 </div>
-
+<!-- Интерактивная командная строка -->
+<div class="cli-input-wrapper">
+    <span class="cli-prompt">zk@root:~\$</span>
+    <input type="text" id="cli-input" class="cli-input" placeholder="Type /apply or drop TG handle..." autocomplete="off">
+</div>
                 <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-value">$48M</span>
-                        <span class="stat-label">UNDER MANAGEMENT</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">37</span>
-                        <span class="stat-label">PORTFOLIO COMPANIES</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">$94M+</span>
-                        <span class="stat-label">RAISED BY PORTFOLIO</span>
-                    </div>
-                </div>
+    <div class="stat-item">
+        <span class="stat-value">$<span class="counter" data-target="48">0</span>M</span>
+        <span class="stat-label">UNDER MANAGEMENT</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value"><span class="counter" data-target="37">0</span></span>
+        <span class="stat-label">PORTFOLIO COMPANIES</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">$<span class="counter" data-target="94">0</span>M+</span>
+        <span class="stat-label">RAISED BY PORTFOLIO</span>
+    </div>
+</div>
                 
                 <div class="hero-tags">
                     <span>• SINGAPORE</span>
@@ -80,18 +127,28 @@
                         <span class="terminal-title">zksynergy://fund.terminal</span>
                     </div>
                     <div class="terminal-body">
-                        <p>> loading fund metrics...</p>
-                        <p>> status: <span class="text-accent">OK ✓</span></p>
-                        <br>
-                        <div class="terminal-table">
-                            <div class="t-row"><span>AUM</span><span>$48.0M</span></div>
-                            <div class="t-row"><span>DEPLOYED</span><span>$12.4M</span></div>
-                            <div class="t-row"><span>PORTFOLIO</span><span>37</span></div>
-                            <div class="t-row"><span>RAISED</span><span>$94.2M</span></div>
-                            <div class="t-row"><span>GRANTS</span><span>$3.1M</span></div>
-                        </div>
-                        <br>
-                        <p class="blinking">> accepting_</p>
+                        <!-- Фаза загрузки -->
+    <div id="terminal-boot" style="color: #27c93f; font-family: monospace; font-size: 13px; margin-bottom: 20px;">
+        <p class="boot-log" style="opacity: 0;">> establishing secure connection...</p>
+        <p class="boot-log" style="opacity: 0;">> validating zk-proofs...</p>
+        <p class="boot-log" style="opacity: 0;">> syncing node... OK</p>
+        <p class="boot-log" style="opacity: 0;">> loading fund metrics...</p>
+    </div>
+    
+    <!-- Финальные данные (изначально скрыты) -->
+    <div id="terminal-data" style="display: none;">
+        <p>> status: <span class="text-accent">OK ✓</span></p>
+        <br>
+        <div class="terminal-table">
+            <div class="t-row"><span>AUM</span><span>$48.0M</span></div>
+            <div class="t-row"><span>DEPLOYED</span><span>$12.4M</span></div>
+            <div class="t-row"><span>PORTFOLIO</span><span>37</span></div>
+            <div class="t-row"><span>RAISED</span><span>$94.2M</span></div>
+            <div class="t-row"><span>GRANTS</span><span>$3.1M</span></div>
+        </div>
+        <br>
+        <p class="blinking">> accepting_</p>
+    </div>
                     </div>
                 </div>
             </div>
@@ -209,7 +266,48 @@
                 </div>
             </div>
         </section>
-
+<!-- ROI Calculator Section -->
+<section id="roi-calculator" class="roi-section">
+    <div class="section-header">
+        <div class="tech-label justify-center"><span>[</span> YIELD PROJECTION <span>]</span></div>
+        <h2 style="text-align: center;">Simulate Syndicate Returns</h2>
+    </div>
+    <div class="roi-container terminal-card">
+        <div class="terminal-header">
+            <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <span class="terminal-title">zksynergy://roi-calculator.exe</span>
+        </div>
+        <div class="roi-body">
+            <div class="roi-controls">
+                <div class="slider-group">
+                    <div class="slider-labels">
+                        <span>CAPITAL DEPLOYED</span>
+                        <span class="highlight-cyan">$<span id="roi-capital-val">50,000</span></span>
+                    </div>
+                    <input type="range" id="roi-capital" min="10000" max="500000" step="5000" value="50000" class="cyber-slider">
+                </div>
+                <div class="slider-group">
+                    <div class="slider-labels">
+                        <span>TIME HORIZON (YEARS)</span>
+                        <span class="highlight-cyan"><span id="roi-time-val">3</span> YRS</span>
+                    </div>
+                    <input type="range" id="roi-time" min="1" max="7" step="1" value="3" class="cyber-slider">
+                </div>
+            </div>
+            <div class="roi-results">
+                <div class="result-box">
+                    <h4>PROJECTED MULTIPLIER</h4>
+                    <div class="result-value"><span id="roi-mult">8.5</span>x</div>
+                </div>
+                <div class="result-box highlight-box">
+                    <h4>ESTIMATED VALUE</h4>
+                    <div class="result-value" style="color: #00e5ff;">$<span id="roi-total">425,000</span></div>
+                </div>
+            </div>
+            <p class="roi-disclaimer">> Disclaimer: Crypto markets are highly volatile. Projections are based on historical fund performance and are not financial advice.</p>
+        </div>
+    </div>
+</section>
         <!-- Thesis Section -->
         <section id="thesis" class="thesis-section">
             <div id="thesis-webgl-container"></div>
@@ -282,7 +380,30 @@
                 </div>
             </div>
         </section>
-
+<!-- Terminal FAQ Section -->
+<section id="faq" class="faq-section">
+    <div class="section-header">
+        <div class="tech-label"><span>[</span> SYSTEM QUERIES <span>]</span></div>
+        <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-terminal terminal-card">
+        <div class="terminal-header">
+            <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <span class="terminal-title">root@zksynergy:~/faq$</span>
+        </div>
+        <div class="faq-layout">
+            <div class="faq-commands">
+                <button class="faq-cmd active" data-answer="We strictly focus on Pre-Seed and Seed rounds. We prefer to be the first institutional check in a builder's journey, writing tickets between $100K and $1.5M.">> ./ask_stage_and_check.sh</button>
+                <button class="faq-cmd" data-answer="Yes. Our incubator program is designed for solo founders or small technical teams. We provide smart contract audits, frontend support, and tokenomics design.">> ./ask_incubation.sh</button>
+                <button class="faq-cmd" data-answer="We are deeply convicted in On-Chain AI Agents, Decentralized Physical Infrastructure Networks (DePIN), and modular Zero-Knowledge liquidity layers.">> ./ask_core_thesis.sh</button>
+                <button class="faq-cmd" data-answer="Private syndicate members must pass KYC/AML and commit to a minimum check size of $5,000 per deal. Lock-ups mimic the fund's vesting schedules.">> ./ask_syndicate_terms.sh</button>
+            </div>
+            <div class="faq-output">
+                <p class="output-text"><span id="faq-typewriter">We strictly focus on Pre-Seed and Seed rounds. We prefer to be the first institutional check in a builder's journey, writing tickets between $100K and $1.5M.</span><span class="blinking">_</span></p>
+            </div>
+        </div>
+    </div>
+</section>
         <!-- Events Section -->
         <section id="events" class="events-section">
             <div id="events-webgl-container"></div>
@@ -386,5 +507,7 @@
     </div>
 
     <script src="app.js"></script>
+<!-- Контейнер для Live Deal-Flow Toasts -->
+<div id="toast-container" class="toast-container"></div>
 </body>
 </html>
